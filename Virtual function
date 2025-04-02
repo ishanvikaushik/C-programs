@@ -1,0 +1,49 @@
+/*need to use pointers to access it*/
+/* cannot be used for static method*/
+/*program without virtual function-gives output only from parent class*/
+#include <iostream>
+ using namespace std;
+ class A{
+     public:
+     void display(){
+         cout <<"display from A"<< endl;
+     }
+ };
+ class B:public A{
+     public:
+     void display(){
+         cout <<" display from B"<< endl;
+     }
+ };
+ int main(){
+     A *aObj;
+     B b;
+     aObj=&b;
+     aObj->display();
+ };
+output-
+display from A
+/*with virtual function- output only from child class*/
+#include <iostream>
+ using namespace std;
+ class A{
+     public:
+     virtual void display(){
+         cout <<"display from A"<< endl;
+     }
+ };
+ class B:public A{
+     public:
+      virtual void display(){
+         cout <<" display from B"<< endl;
+     }
+ };
+ int main(){
+     A *aObj;
+     B b;
+     aObj=&b;
+     aObj->display();
+ };
+output-
+display from B
+/* doubt- do both mehtod has to be virtual or only one works? cuz same output got if only method of class A is virtual*/
