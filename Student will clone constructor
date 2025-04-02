@@ -1,0 +1,53 @@
+#include <iostream>
+ using namespace std;
+ class Student{
+     public:
+     int id;
+     string name;
+     Student(){             /*Constructor is default here so these values assigned to attributes first and if insert method exec with other values then the attributes are overriden 
+     and values changed*/
+         id=1;
+         name="A";
+         cout << "Constructor called "<< endl;
+     }
+     Student(int i,string n){             /*Constructor is parameterised here so these values assigned to attributes first as given by user after values of default constructor overriden and if insert method exec with other values then the attributes are overriden 
+     and values changed*/
+         id=i;
+         name=n;
+         cout << "Parameterised Constructor called "<< endl;
+     }
+      Student(Student &s){             /*Constructor is cloned here so these values assigned to attributes when an object of Student class passed after values of default constructor overriden*/
+         id=s.id+1;
+         name=s.name;
+         cout << "Clone Constructor called "<< endl;
+     }
+     void insert(int i,string n){
+         id=i;
+         name=n;
+     }
+     void display(){
+         cout<< id << " "<< name << endl;
+     }
+ };
+int main()
+{
+    Student s1;
+    s1.display();
+    Student s2(102,"XQV");
+    s2.display();
+    s2.insert(101,"ABC");
+    s2.display();
+    Student s3(s2);
+    s3.display();
+
+    return 0;
+}
+
+Output-
+Constructor called 
+1 A
+Parameterised Constructor called 
+102 XQV
+101 ABC
+Clone Constructor called 
+102 ABC
