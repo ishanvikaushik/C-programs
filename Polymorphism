@@ -1,0 +1,69 @@
+/* return type is not necessary to be same for compile time overloading and only the method signature considered which method overloaded*/
+/*Compile time overloading*/
+/*method overloading*/
+#include <iostream>
+ using namespace std;
+ int add(int i,int j){
+     return i+j;
+ }
+ /*both float and int add have same method parameter so ambiguity error thrown*/
+/* float add(int i,int j){
+     return(float)(i+j);
+ }*/
+ float add(int i,int j,int k){
+     return(float)(i+j+k);
+ }
+int main()
+{
+   cout << add(1,3,4);
+   return 0;}
+Output-
+8
+/*Operator overloading*/
+/*without operator overloading we need to keep calling a function for same operator op*/
+#include <iostream>
+ using namespace std;
+ class Counter{
+     public:
+     int count=0;
+     void printCount(){
+         cout << "Count is:"<< count << endl;
+     }
+     void increment(){
+         count+=1;
+     }
+ };
+int main()
+{
+    Counter c;
+   c.printCount();
+   c.increment();
+   c.printCount();
+   return 0;}
+Output-
+Count is:0
+Count is:1
+/*same program with operator overloading*/
+#include <iostream>
+ using namespace std;
+ class Counter{
+     public:
+     int count=0;
+     void printCount(){
+         cout << "Count is:"<< count << endl;
+     }
+     void operator ++(){
+         count++;
+     }
+ };
+int main()
+{
+    Counter c;
+   c.printCount();
+   ++c;
+   ++c;
+   c.printCount();
+   return 0;}
+Output-
+Count is:0
+Count is:2
