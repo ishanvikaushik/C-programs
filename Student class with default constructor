@@ -1,0 +1,29 @@
+#include <iostream>
+ using namespace std;
+ class Student{
+     public:
+     int id;
+     string name;
+     Student(){             /*Constructor is default here so these values assigned to attributes first and if insert method exec with other values then the attributes are overriden 
+     and values changed*/
+         id=1;
+         name="A";
+         cout << "Constructor called "<< endl;
+     }
+     void insert(int i,string n){
+         id=i;
+         name=n;
+     }
+     void display(){
+         cout<< id << " "<< name << endl;
+     }
+ };
+int main()
+{
+    Student s1;
+    s1.display();
+    s1.insert(101,"ABC");
+    s1.display();
+
+    return 0;
+}
