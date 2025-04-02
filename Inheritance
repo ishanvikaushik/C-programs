@@ -1,0 +1,60 @@
+/* derived class- inheriting all members and behaviour of parent class
+base class- parent class getting inherited*/
+
+/*Types of inheritance- single, multiple, hybrid, hierarchial,multilevel*/
+
+/*Single level inheritance*/
+#include <iostream>
+ using namespace std;
+ class A{
+     public:
+     int aId=10;/*can init a variable outside constructor too and any class inheriting A will have id as 10 unless ove
+     overidden*/
+ };
+ class B: public A{
+ public:
+ int bId=30;
+ };
+     
+ 
+ 
+int main()
+{
+    B obj;
+    cout << obj.bId << endl;
+    cout << obj.aId << endl;
+}
+Output-
+30
+10
+
+/*Multiple Inheritance*/
+#include <iostream>
+ using namespace std;
+ class A{
+     public:
+     int aId=10;/*can init a variable outside constructor too and any class inheriting A will have id as 10 unless ove
+     overidden*/
+ };
+ class B{
+ public:
+ int bId=30;
+ };
+     
+ class C: public A, public B{
+     public:
+     int cId=40;
+ };
+ 
+int main()
+{
+    C obj;
+    cout << obj.bId << endl;
+    cout << obj.aId << endl;
+    cout << obj.cId << endl;
+}
+Output-
+30
+10
+40
+
